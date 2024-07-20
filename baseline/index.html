@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Mapping Demo</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.focus();
+            document.addEventListener('keydown', function(event) {
+                let direction = event.key.toLowerCase();
+
+                fetch('/check_keys', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'direction=' + direction
+                })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('output').textContent = 'Current Output: ' + data.current_output;
+                    console.log('Current Output: ' + data.current_output);  // 在控制台打印结果
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Key Mapping Demo</h1>
+    <div class="output" id="output">Current Output: 8</div>
+</body>
+</html>

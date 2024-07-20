@@ -1,0 +1,81 @@
+C:\Users\Y\AppData\Local\Programs\Python\Python312\Lib\site-packages\torch\functional.py:512: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ..\aten\src\ATen\native\TensorShape.cpp:3588.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498319.3863468.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498343.0001442.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498369.192415.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498376.588274.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498387.0662048.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498395.5344489.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498404.2467763.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498408.542788.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498413.2889113.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498420.2884178.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498424.449099.jpg
+Cropped and saved: received_images\crop_1720498425.1226952_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 61ms/step
+The best prediction is that image received_images\crop_1720498425.1226952_0.jpg is Pallas_cats with certainty 1.00.     
+Saved image: received_images\image_1720498450.9124424.jpg
+Cropped and saved: received_images\crop_1720498451.6710863_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 72ms/step
+The best prediction is that image received_images\crop_1720498451.6710863_0.jpg is Ragdoll with certainty 0.99.
+Saved image: received_images\image_1720498480.813137.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498486.3948267.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498492.2985601.jpg
+Cropped and saved: received_images\crop_1720498493.096787_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 41ms/step
+The best prediction is that image received_images\crop_1720498493.096787_0.jpg is Pallas_cats with certainty 1.00.      
+Saved image: received_images\image_1720498567.4435837.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498571.988838.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498578.9438639.jpg
+Cropped and saved: received_images\crop_1720498579.791414_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 53ms/step
+The best prediction is that image received_images\crop_1720498579.791414_0.jpg is Persian_cat with certainty 0.89.
+Saved image: received_images\image_1720498604.8335152.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498609.7709537.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498612.9460254.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498615.8647363.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498619.6493013.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498622.3779247.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498624.8756907.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498627.6895862.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498634.2358956.jpg
+No cat detected with sufficient confidence.
+Saved image: received_images\image_1720498639.6377099.jpg
+Cropped and saved: received_images\crop_1720498640.424695_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 83ms/step
+The best prediction is that image received_images\crop_1720498640.424695_0.jpg is Persian_cat with certainty 0.92.
+Saved image: received_images\image_1720498677.8821.jpg
+Cropped and saved: received_images\crop_1720498678.6748872_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 55ms/step
+The best prediction is that image received_images\crop_1720498678.6748872_0.jpg is Singapura_cats with certainty 0.96.
+Saved image: received_images\image_1720498708.1822681.jpg
+Cropped and saved: received_images\crop_1720498708.866674_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 56ms/step
+The best prediction is that image received_images\crop_1720498708.866674_0.jpg is Singapura_cats with certainty 0.96.
+Saved image: received_images\image_1720498753.0903132.jpg
+Cropped and saved: received_images\crop_1720498753.8922608_0.jpg
+1/1 ━━━━━━━━━━━━━━━━━━━━ 0s 70ms/step
+The best prediction is that image received_images\crop_1720498753.8922608_0.jpg is Sphynx_cats with certainty 1.00.

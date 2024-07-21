@@ -8,12 +8,13 @@
   + YANG RUNKANG @***ShanghaiTech University*** major in ***Computer Science***
   + WEN SIJIE @***BUPT*** major in ***Software Engineering***
 + **Robotics Track**
-  + ZHANG CHENHAN @***SUST*** major in ***Robotics Engineering***
+  + ZHANG CHENHAN @***SUSTech*** major in ***Robotics Engineering***
   + HE JUNHANG  @***XJTU*** major in ***Artificial Intelligence***
 ---
 ## Summer Workshop Schedule
 + **The first week**
   + Prepare for the baseline project
+    + #### ***For more content related to deep learning, please refer to [this GitHub repository](https://github.com/Rankyer/NUS-SOC-SummerWorkshop-DeepLearning-Labs), which contains the 7 lab contents of the deep learning section.***
 + **The second week**
   + Prepare for the demo of our own advanced model
 + **The third week**

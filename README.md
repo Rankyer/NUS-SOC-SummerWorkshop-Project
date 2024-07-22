@@ -20,6 +20,9 @@
 + **The third week**
   + Prepare for the final presentation of our own advanced model
 ---
+## Notes
+#### ***For the dataset we used, please refer to [this GitHub repository](https://github.com/Rankyer/NUS-SOC-SummerWorkshop-Project-Dataset), which contains the baseline dataset (five kinds of cats) as well as the dataset of our advanced model.***
+---
 ## Baseline project
 ### Introduction
 

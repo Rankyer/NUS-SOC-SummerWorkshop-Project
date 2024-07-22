@@ -1,5 +1,5 @@
 # National University of Singapore [(NUS)](https://nus.edu.sg/) School of Computing [(SOC)](https://www.comp.nus.edu.sg/) [Summer Workshop](https://sws.comp.nus.edu.sg/) Course Project 2024
-## Group2 project for the Robotics/Deep Learning
+## Group2 project for the Robotics & Deep Learning
 
 ---
 

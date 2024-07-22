@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transportation Queue & Smart Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h3 {
+            margin-bottom: 10px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .selected {
+            background-color: #ffc107 !important;
+            color: black;
+        }
+        .queue, .completed, .recommendation {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .section-divider {
+            margin: 40px 0;
+            border-top: 1px solid #ddd;
+        }
+        .current-time {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Transportation Queue Section -->
+        <div class="section">
+            <h3>Please select animal</h3>
+            <div class="button-group">
+                <button id="animal_cat" onclick="selectItem('animal', 'cat')">Cat</button>
+                <button id="animal_dog" onclick="selectItem('animal', 'dog')">Dog</button>
+                <button id="animal_bird" onclick="selectItem('animal', 'bird')">Bird</button>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Please select food</h3>
+            <div class="button-group">
+                <button id="food_apple" onclick="selectItem('food', 'apple')">Apple</button>
+                <button id="food_banana" onclick="selectItem('food', 'banana')">Banana</button>
+                <button id="food_watermelon" onclick="selectItem('food', 'watermelon')">Watermelon</button>
+            </div>
+        </div>
+        <button onclick="addToQueue()">Add to Transportation Queue</button>
+        <button onclick="clearQueue()">Delete Queue</button>
+        <div class="queue">
+            <h3>Transportation Queue</h3>
+            <ul id="queueList"></ul>
+        </div>
+        <div class="completed">
+            <h3>Completed</h3>
+            <ul id="completedList"></ul>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Smart Recommendation System Section -->
+        <div class="section">
+            <h3>Smart Recommendation System</h3>
+            <div class="current-time" id="currentTime"></div>
+            <div class="button-group">
+                <button id="recommend_cat" onclick="selectRecommendation('cat')">Cat</button>
+                <button id="recommend_dog" onclick="selectRecommendation('dog')">Dog</button>
+                <button id="recommend_bird" onclick="selectRecommendation('bird')">Bird</button>
+            </div>
+            <button onclick="getRecommendation()">Predict</button>
+        </div>
+        <div class="recommendation">
+            <h3>Recommendation</h3>
+            <ul id="recommendationList"></ul>
+        </div>
+    </div>
+
+    <script>
+        let selectedAnimal = null;
+        let selectedFood = null;
+        let queue = [];
+        let completedQueue = [];
+
+        function selectItem(category, item) {
+            if (category === 'animal') {
+                selectedAnimal = item;
+                document.querySelectorAll('.button-group button').forEach(btn => {
+                    if (btn.id.startsWith('animal_')) {
+                        btn.classList.remove('selected');
+                    }
+                });
+                document.getElementById(`animal_${item}`).classList.add('selected');
+            } else if (category === 'food') {
+                selectedFood = item;
+                document.querySelectorAll('.button-group button').forEach(btn => {
+                    if (btn.id.startsWith('food_')) {
+                        btn.classList.remove('selected');
+                    }
+                });
+                document.getElementById(`food_${item}`).classList.add('selected');
+            }
+            updateQueueDisplay();
+        }
+
+        function addToQueue() {
+            if (selectedAnimal && selectedFood) {
+                const queueItem = `${selectedAnimal} and ${selectedFood}`;
+                queue.push(queueItem);
+                updateQueueDisplay();
+                sendToServer(selectedAnimal, selectedFood);
+                selectedAnimal = null;
+                selectedFood = null;
+                document.querySelectorAll('.button-group button').forEach(btn => btn.classList.remove('selected'));
+            } else {
+                alert('Please choose one animal and corresponding food');
+            }
+        }
+
+        function clearQueue() {
+            queue = [];
+            updateQueueDisplay();
+        }
+
+        function updateQueueDisplay() {
+            const queueList = document.getElementById('queueList');
+            queueList.innerHTML = '';
+            queue.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                queueList.appendChild(li);
+            });
+
+            const completedList = document.getElementById('completedList');
+            completedList.innerHTML = '';
+            completedQueue.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item;
+                completedList.appendChild(li);
+            });
+        }
+
+        function sendToServer(animal, food) {
+            fetch('/add_to_queue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ animal, food }),
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch((error) => console.error('Error:', error));
+        }
+
+        function updateCompleted(item) {
+            completedQueue.push(item);
+            updateQueueDisplay();
+        }
+
+        function removeFirstQueueItem() {
+            queue.shift();
+            updateQueueDisplay();
+        }
+
+        const eventSource = new EventSource('/queue_update');
+        eventSource.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            if (data.type === 'completed') {
+                updateCompleted(data.item);
+                removeFirstQueueItem();
+            }
+        };
+
+        let selectedRecommendationAnimal = null;
+
+        function selectRecommendation(animal) {
+            selectedRecommendationAnimal = animal;
+            document.querySelectorAll('.button-group button').forEach(btn => {
+                if (btn.id.startsWith('recommend_')) {
+                    btn.classList.remove('selected');
+                }
+            });
+            document.getElementById(`recommend_${animal}`).classList.add('selected');
+        }
+
+        function getRecommendation() {
+            if (!selectedRecommendationAnimal) {
+                alert('Please select an animal to get a recommendation');
+                return;
+            }
+            fetch('/get_recommendation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ animal: selectedRecommendationAnimal, time: new Date().toISOString() }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const recommendationList = document.getElementById('recommendationList');
+                recommendationList.innerHTML = '';
+                data.recommendations.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    recommendationList.appendChild(li);
+                });
+            })
+            .catch((error) => console.error('Error:', error));
+        }
+
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('currentTime').textContent = `Current Time: ${timeString}`;
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>

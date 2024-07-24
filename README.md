@@ -126,10 +126,8 @@ To enhance the intelligence of our delivery system, we collected shopping data f
 
 Our advanced model integrates deep learning and robotics to create an intelligent delivery system for a pet community. By combining Inceptionv3 for image recognition with a carefully designed robotic delivery mechanism, we have developed a reliable and efficient system. The front-end interface and intelligent recommendation system further enhance the user experience, making our pet community delivery system both innovative and practical.
 
-
-
-
-
 ## Our Poster
 ![SWS3009_02 Poster](https://github.com/Rankyer/NUS-SOC-SummerWorkshop-Project/blob/main/poster/SWS3009_02.png?raw=true)
 
+---
+***Feel free to contact me at yangrk2022@shanghaitech.edu.cn if need any additional information.***
